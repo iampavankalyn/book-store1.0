@@ -16,10 +16,13 @@ spec:
     spec:
       containers:
       - name: bookstore-frontend-react-app
-        image: rajureddy98/bookstore-frontend-react-app:1.0
+        image: iampavankalyan/bookstore-frontend-react-app:1.0
         ports:
           - containerPort: 3000
         imagePullPolicy: Always
+        env:
+        - name: DT_CUSTOM_PROP
+          value: "project=dt-orders service=frontend"
 ---
 apiVersion: v1
 kind: Service
