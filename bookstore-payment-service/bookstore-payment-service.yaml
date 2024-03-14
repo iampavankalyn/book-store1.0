@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: bookstore-payment-service
-        image: rajureddy98/bookstore-payment-service:2.0
+        image: iampavankalyan/bookstore-payment-service:1.0
         ports:
           - containerPort: 8001
         imagePullPolicy: Always
         env:
-        - name: JAVA_OPTIONS
-          value: "-Dspring.profiles.active=local"
+        - name: DT_CUSTOM_PROP
+          value: "project=dt-orders service=frontend"
 ---
 apiVersion: v1
 kind: Service
