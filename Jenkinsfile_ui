@@ -9,7 +9,7 @@ pipeline {
         }
         stage('scm checkout') {
             steps {
-               git credentialsId: 'github-private', url: 'https://github.com/rajureddy98/book-store.git' 
+               git branch: 'JenkinsTest', url: 'https://github.com/iampavankalyn/book-store1.0.git' 
             }
         }
         stage('build-FE-docker-image and push'){
@@ -17,11 +17,10 @@ pipeline {
                 sh '''
                     cd bookstore-frontend-react-app
                     docker build -t bookstore-frontend-react-app:1.0 .
-                    docker tag bookstore-frontend-react-app:1.0 rajureddy98/bookstore-frontend-react-app:1.0
-                    docker login -u=rajureddy98 -p=rajureddy98
-                    docker push rajureddy98/bookstore-frontend-react-app:1.0  
+                    docker tag bookstore-frontend-react-app:1.0 iampavankalyan/bookstore-frontend-react-app:1.0
+                    docker login -u=iampavankalyan -p=Chanikya@123
+                    docker push iampavankalyan/bookstore-frontend-react-app:1.0  
                 '''
-                emailext body: 'front-end build success', recipientProviders: [developers()], subject: 'front-end build success', to: 'admin@rajureddy.co'
             }
         }
     }
