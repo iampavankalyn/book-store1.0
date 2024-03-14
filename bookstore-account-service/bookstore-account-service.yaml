@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: bookstore-account-service
-        image: rajureddy98/bookstore-account-service:2.0
+        image: iampavankalyan/bookstore-account-service:1.0
         ports:
           - containerPort: 4001
         imagePullPolicy: Always
         env:
-        - name: JAVA_OPTIONS
-          value: "-Dspring.profiles.active=local"
+        - name: DT_CUSTOM_PROP
+          value: "project=dt-orders service=account-service"
 ---
 apiVersion: v1
 kind: Service
