@@ -12,7 +12,7 @@ pipeline {
         }
         stage('scm checkout') {
             steps {
-               git 'https://github.com/iampavankalyn/book-store.git' 
+               git 'https://github.com/iampavankalyn/book-store1.0.git' 
             }
         }
         stage('build-ms'){
